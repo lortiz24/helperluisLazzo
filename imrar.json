@@ -1,0 +1,442 @@
+{
+    "backup": [
+        {
+            "_id": "631ca6dc6dbbb92da81e6355",
+            "empresas_id": 148,
+            "jornada_id": 2209100101,
+            "equipos_id": 1234,
+            "data": {
+                "id": "148",
+                "alias": "EDS PONTEVEDRA DEVICES",
+                "razon_social": "PLAN VE SAS",
+                "codigo": "1154",
+                "consecutivos": [
+                    {
+                        "consecutivo_prefijo": "CANST",
+                        "ventas": 10,
+                        "maximo": 78999,
+                        "minimo": 4.6854811111111e+77
+                    },
+                    {
+                        "consecutivo_prefijo": "PV",
+                        "ventas": 2,
+                        "maximo": 73315,
+                        "minimo": 73314
+                    },
+                    {
+                        "consecutivo_prefijo": "PVS2",
+                        "ventas": 27,
+                        "maximo": 53267,
+                        "minimo": 53239
+                    },
+                    {
+                        "consecutivo_prefijo": null,
+                        "ventas": 7,
+                        "maximo": 55246,
+                        "minimo": 55223
+                    }
+                ],
+                "entradas": [
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    }
+                ],
+                "ventas_combustible": [
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    }
+                ],
+                "ventas_kiosco": []
+            }
+        },
+        {
+            "_id": "631ca6dc6dbbb92da81e6455",
+            "empresas_id": 148,
+            "jornada_id": 2209100101,
+            "equipos_id": 1234,
+            "data": {
+                "id": "148",
+                "alias": "EDS PONTEVEDRA DEVICES",
+                "razon_social": "PLAN VE SAS",
+                "codigo": "1154",
+                "consecutivos": [
+                    {
+                        "consecutivo_prefijo": "CANST",
+                        "ventas": 10,
+                        "maximo": 78999,
+                        "minimo": 4.6854811111111e+77
+                    },
+                    {
+                        "consecutivo_prefijo": "PV",
+                        "ventas": 2,
+                        "maximo": 73315,
+                        "minimo": 73314
+                    },
+                    {
+                        "consecutivo_prefijo": "PVS2",
+                        "ventas": 27,
+                        "maximo": 53267,
+                        "minimo": 53239
+                    },
+                    {
+                        "consecutivo_prefijo": null,
+                        "ventas": 7,
+                        "maximo": 55246,
+                        "minimo": 55223
+                    }
+                ],
+                "entradas": [
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    }
+                ],
+                "ventas_combustible": [
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09 ",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    },
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    }
+                ],
+                "ventas_kiosco": []
+            }
+        }
+    ],
+    "cierres_modificados": [
+        {
+            "_id": "631ca6dc6dbbb92da81e6355",
+            "empresas_id": 148,
+            "jornada_id": 2209100101,
+            "equipos_id": 1234,
+            "data": {
+                "id": "148",
+                "alias": "EDS PONTEVEDRA DEVICES",
+                "razon_social": "PLAN VE SAS",
+                "codigo": "1154",
+                "consecutivos": [
+                    {
+                        "consecutivo_prefijo": "CANST",
+                        "ventas": 10,
+                        "maximo": 78999,
+                        "minimo": 4.6854811111111e+77
+                    },
+                    {
+                        "consecutivo_prefijo": "PV",
+                        "ventas": 2,
+                        "maximo": 73315,
+                        "minimo": 73314
+                    },
+                    {
+                        "consecutivo_prefijo": "PVS2",
+                        "ventas": 27,
+                        "maximo": 53267,
+                        "minimo": 53239
+                    },
+                    {
+                        "consecutivo_prefijo": null,
+                        "ventas": 7,
+                        "maximo": 55246,
+                        "minimo": 55223
+                    }
+                ],
+                "entradas": [
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    }
+                ],
+                "ventas_combustible": [
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    }
+                ],
+                "ventas_kiosco": []
+            }
+        },
+        {
+            "_id": "631ca6dc6dbbb92da81e6455",
+            "empresas_id": 148,
+            "jornada_id": 2209100101,
+            "equipos_id": 1234,
+            "data": {
+                "id": "148",
+                "alias": "EDS PONTEVEDRA DEVICES",
+                "razon_social": "PLAN VE SAS",
+                "codigo": "1154",
+                "consecutivos": [
+                    {
+                        "consecutivo_prefijo": "CANST",
+                        "ventas": 10,
+                        "maximo": 78999,
+                        "minimo": 4.6854811111111e+77
+                    },
+                    {
+                        "consecutivo_prefijo": "PV",
+                        "ventas": 2,
+                        "maximo": 73315,
+                        "minimo": 73314
+                    },
+                    {
+                        "consecutivo_prefijo": "PVS2",
+                        "ventas": 27,
+                        "maximo": 53267,
+                        "minimo": 53239
+                    },
+                    {
+                        "consecutivo_prefijo": null,
+                        "ventas": 7,
+                        "maximo": 55246,
+                        "minimo": 55223
+                    }
+                ],
+                "entradas": [
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    }
+                ],
+                "ventas_combustible": [
+                    {
+                        "venta": "CANST223",
+                        "fecha": "2022-09-01T16:52:09 ",
+                        "impuesto_total": 0,
+                        "venta_total": 34396,
+                        "promotor": "NATALI GRANADOS TERE",
+                        "descripcion": "EXTRA 20% (PRUEBA)",
+                        "cantidad": 3.44,
+                        "unidad": "GALONES",
+                        "total": 34396
+                    }
+                ],
+                "ventas_kiosco": []
+            }
+        }
+    ]
+}
