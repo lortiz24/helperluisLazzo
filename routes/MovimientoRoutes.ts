@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {getUsuarios,deleteDuplicados} from "../controllers/UsuarioControllers";
+import {getUsuarios,deleteDuplicados, deleteAllDuplicados} from "../controllers/UsuarioControllers";
 
 
 
@@ -14,6 +14,10 @@ router.post(
 router.post(
     "/delete_duplicados",
     deleteDuplicados
+);
+router.post(
+    "/delete_All_duplicados",
+    deleteAllDuplicados
 );
 
 

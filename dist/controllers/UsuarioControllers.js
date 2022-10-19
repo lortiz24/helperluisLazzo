@@ -12,8 +12,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteDuplicados = exports.getUsuarios = void 0;
+exports.deleteAllDuplicados = exports.deleteDuplicados = exports.getUsuarios = exports.deleteDuplicadosHelper = void 0;
 const CierreDiarioModels_1 = __importDefault(require("../models/CierreDiarioModels"));
+const deleteDuplicadosHelper = (req, borradas) => __awaiter(void 0, void 0, void 0, function* () {
+    const { empresas_id, consecutivo_combustible } = req;
+    try {
+        console.log(empresas_id);
+        const detalladoCierre = yield CierreDiarioModels_1.default.aggregate()
+            .match({ empresas_id: empresas_id, "data.ventas_combustible.consecutivo": consecutivo_combustible });
+        // res.send(detalladoCierre)
+        if (detalladoCierre.length > 1) {
+            let duplocadasABorrar = [];
+            detalladoCierre.map((detalladoItem, index) => {
+                if (index === 0)
+                    return;
+                duplocadasABorrar.push(CierreDiarioModels_1.default.findByIdAndDelete(detalladoItem._id));
+                borradas.push(detalladoItem);
+            });
+            const backup = yield Promise.all(duplocadasABorrar);
+            return {
+                consecutivo_combustible,
+                backup
+            };
+        }
+        return { consecutivo_combustible, backup: [] };
+    }
+    catch (error) {
+        return { consecutivo_combustible, error: error.message };
+    }
+});
+exports.deleteDuplicadosHelper = deleteDuplicadosHelper;
 const getUsuarios = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { empresas_id } = req.body;
@@ -74,4 +102,27 @@ const deleteDuplicados = (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.deleteDuplicados = deleteDuplicados;
+const deleteAllDuplicados = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { empresas_id } = req.body;
+        let array_a_borrar = [];
+        let borradas = [];
+        console.log(empresas_id);
+        const detalladoCierre = yield CierreDiarioModels_1.default.aggregate()
+            .match({ empresas_id: empresas_id });
+        // res.send(detalladoCierre)
+        console.log(detalladoCierre);
+        detalladoCierre.map((detalladoItem, index) => {
+            detalladoItem.data.ventas_combustible.map((item, index) => {
+                array_a_borrar.push((0, exports.deleteDuplicadosHelper)({ empresas_id, consecutivo_combustible: item.consecutivo }, borradas));
+            });
+        });
+        const backup = yield Promise.all(array_a_borrar);
+        res.json({ borradas });
+    }
+    catch (error) {
+        res.json({ error: error.message });
+    }
+});
+exports.deleteAllDuplicados = deleteAllDuplicados;
 //# sourceMappingURL=UsuarioControllers.js.map

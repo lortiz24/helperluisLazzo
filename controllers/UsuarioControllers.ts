@@ -2,6 +2,39 @@ import { Response, Request } from 'express'
 import { mongo } from 'mongoose';
 import DetalladoCierreDiario from '../models/CierreDiarioModels';
 
+
+export const deleteDuplicadosHelper = async (req: any, borradas: any[]) => {
+    const { empresas_id, consecutivo_combustible } = req
+    try {
+        console.log(empresas_id)
+        const detalladoCierre = await DetalladoCierreDiario.aggregate()
+            .match({ empresas_id: empresas_id, "data.ventas_combustible.consecutivo": consecutivo_combustible })
+        // res.send(detalladoCierre)
+
+
+
+        if (detalladoCierre.length > 1) {
+            let duplocadasABorrar: any[] = [];
+            detalladoCierre.map((detalladoItem: any, index: number) => {
+
+                if (index === 0) return
+                duplocadasABorrar.push(DetalladoCierreDiario.findByIdAndDelete(detalladoItem._id))
+                borradas.push(detalladoItem)
+            })
+
+            const backup = await Promise.all(duplocadasABorrar);
+            return {
+                consecutivo_combustible,
+                backup
+            }
+        }
+
+        return { consecutivo_combustible, backup: [] }
+    } catch (error: any) {
+        return { consecutivo_combustible, error: error.message }
+    }
+
+}
 export const getUsuarios = async (req: Request, res: Response) => {
     try {
         const { empresas_id } = req.body
@@ -71,6 +104,32 @@ export const deleteDuplicados = async (req: Request, res: Response) => {
         res.send({
             msg: "No hay registros duplicados con ese consecutivo"
         })
+    } catch (error: any) {
+        res.json({ error: error.message });
+    }
+
+}
+export const deleteAllDuplicados = async (req: Request, res: Response) => {
+    try {
+        const { empresas_id } = req.body
+        let array_a_borrar: any[] = []
+        let borradas: any[] = []
+        console.log(empresas_id)
+        const detalladoCierre = await DetalladoCierreDiario.aggregate()
+            .match({ empresas_id: empresas_id })
+        // res.send(detalladoCierre)
+        console.log(detalladoCierre)
+        detalladoCierre.map((detalladoItem: any, index: number) => {
+
+
+            detalladoItem.data.ventas_combustible.map((item: any, index: number) => {
+                array_a_borrar.push(deleteDuplicadosHelper({ empresas_id, consecutivo_combustible: item.consecutivo }, borradas))
+            })
+
+        })
+        const backup = await Promise.all(array_a_borrar);
+
+        res.json({ borradas })
     } catch (error: any) {
         res.json({ error: error.message });
     }
