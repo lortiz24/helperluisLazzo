@@ -114,13 +114,14 @@ export const deleteAllDuplicados = async (req: Request, res: Response) => {
         const { empresas_id } = req.body
         let borradas: any[] = []
         console.log("first")
-        const detalladoCierre = await DetalladoCierreDiario.aggregate().match({ empresas_id:175,"data.ventas_combustible.consecutivo":"82275 - LIQC" })
+        const cantidadRegistros = DetalladoCierreDiario.countDocuments({ empresas_id: empresas_id })
+        const detalladoCierre = DetalladoCierreDiario.find({ empresas_id: empresas_id }).limit(100)
         console.log("second")
         let hashCombustibles: any = {};
         detalladoCierre.map((detalladoItem: any, index: number) => {
             const consecutivos_a_borrar = detalladoItem.data.ventas_combustible?.filter((ventaCombustible: any) => hashCombustibles[ventaCombustible.venta] ? true : hashCombustibles[ventaCombustible.venta] = true) ?? []
-           
-           console.log(consecutivos_a_borrar)
+
+            console.log(consecutivos_a_borrar)
             /*  detalladoItem.data.ventas_combustible.map(async (item: any, index: number) => {
                   const detalladoCierre = await DetalladoCierreDiario.aggregate()
                      .match({ empresas_id: empresas_id, "data.ventas_combustible.consecutivo": item.consecutivo })
