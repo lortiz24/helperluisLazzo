@@ -14,20 +14,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteAllDuplicados = exports.deleteDuplicados = exports.getUsuarios = exports.deleteDuplicadosHelper = void 0;
 const CierreDiarioModels_1 = __importDefault(require("../models/CierreDiarioModels"));
-const deleteDuplicadosHelper = (req, borradas) => __awaiter(void 0, void 0, void 0, function* () {
+const deleteDuplicadosHelper = (req) => __awaiter(void 0, void 0, void 0, function* () {
     const { empresas_id, consecutivo_combustible } = req;
     try {
-        console.log(empresas_id);
         const detalladoCierre = yield CierreDiarioModels_1.default.aggregate()
             .match({ empresas_id: empresas_id, "data.ventas_combustible.consecutivo": consecutivo_combustible });
         // res.send(detalladoCierre)
         if (detalladoCierre.length > 1) {
             let duplocadasABorrar = [];
+            console.log(consecutivo_combustible);
             detalladoCierre.map((detalladoItem, index) => {
                 if (index === 0)
                     return;
                 duplocadasABorrar.push(CierreDiarioModels_1.default.findByIdAndDelete(detalladoItem._id));
-                borradas.push(detalladoItem);
             });
             const backup = yield Promise.all(duplocadasABorrar);
             return {
@@ -105,19 +104,31 @@ exports.deleteDuplicados = deleteDuplicados;
 const deleteAllDuplicados = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { empresas_id } = req.body;
-        let array_a_borrar = [];
         let borradas = [];
-        console.log(empresas_id);
-        const detalladoCierre = yield CierreDiarioModels_1.default.aggregate()
-            .match({ empresas_id: empresas_id });
-        // res.send(detalladoCierre)
-        console.log(detalladoCierre);
+        console.log("first");
+        const detalladoCierre = yield CierreDiarioModels_1.default.aggregate().match({ empresas_id: 175, "data.ventas_combustible.consecutivo": "82275 - LIQC" });
+        console.log("second");
+        let hashCombustibles = {};
         detalladoCierre.map((detalladoItem, index) => {
-            detalladoItem.data.ventas_combustible.map((item, index) => {
-                array_a_borrar.push((0, exports.deleteDuplicadosHelper)({ empresas_id, consecutivo_combustible: item.consecutivo }, borradas));
-            });
+            var _a, _b;
+            const consecutivos_a_borrar = (_b = (_a = detalladoItem.data.ventas_combustible) === null || _a === void 0 ? void 0 : _a.filter((ventaCombustible) => hashCombustibles[ventaCombustible.venta] ? true : hashCombustibles[ventaCombustible.venta] = true)) !== null && _b !== void 0 ? _b : [];
+            console.log(consecutivos_a_borrar);
+            /*  detalladoItem.data.ventas_combustible.map(async (item: any, index: number) => {
+                  const detalladoCierre = await DetalladoCierreDiario.aggregate()
+                     .match({ empresas_id: empresas_id, "data.ventas_combustible.consecutivo": item.consecutivo })
+                 if (detalladoCierre.length > 1) {
+                     let duplocadasABorrar: any[] = [];
+                     detalladoCierre.map(async (detalladoItem: any, index: number) => {
+                         if (index === 0) return
+                         const res = await DetalladoCierreDiario.findByIdAndDelete(detalladoItem._id)
+                         borradas.push(res)
+                     })
+ 
+ 
+                 }
+
+            }) */
         });
-        const backup = yield Promise.all(array_a_borrar);
         res.json({ borradas });
     }
     catch (error) {

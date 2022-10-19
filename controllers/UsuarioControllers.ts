@@ -3,10 +3,10 @@ import { mongo } from 'mongoose';
 import DetalladoCierreDiario from '../models/CierreDiarioModels';
 
 
-export const deleteDuplicadosHelper = async (req: any, borradas: any[]) => {
+export const deleteDuplicadosHelper = async (req: any) => {
     const { empresas_id, consecutivo_combustible } = req
     try {
-        console.log(empresas_id)
+
         const detalladoCierre = await DetalladoCierreDiario.aggregate()
             .match({ empresas_id: empresas_id, "data.ventas_combustible.consecutivo": consecutivo_combustible })
         // res.send(detalladoCierre)
@@ -15,11 +15,11 @@ export const deleteDuplicadosHelper = async (req: any, borradas: any[]) => {
 
         if (detalladoCierre.length > 1) {
             let duplocadasABorrar: any[] = [];
+            console.log(consecutivo_combustible)
             detalladoCierre.map((detalladoItem: any, index: number) => {
 
                 if (index === 0) return
                 duplocadasABorrar.push(DetalladoCierreDiario.findByIdAndDelete(detalladoItem._id))
-                borradas.push(detalladoItem)
             })
 
             const backup = await Promise.all(duplocadasABorrar);
@@ -112,23 +112,31 @@ export const deleteDuplicados = async (req: Request, res: Response) => {
 export const deleteAllDuplicados = async (req: Request, res: Response) => {
     try {
         const { empresas_id } = req.body
-        let array_a_borrar: any[] = []
         let borradas: any[] = []
-        console.log(empresas_id)
-        const detalladoCierre = await DetalladoCierreDiario.aggregate()
-            .match({ empresas_id: empresas_id })
-        // res.send(detalladoCierre)
-        console.log(detalladoCierre)
+        console.log("first")
+        const detalladoCierre = await DetalladoCierreDiario.aggregate().match({ empresas_id:175,"data.ventas_combustible.consecutivo":"82275 - LIQC" })
+        console.log("second")
+        let hashCombustibles: any = {};
         detalladoCierre.map((detalladoItem: any, index: number) => {
+            const consecutivos_a_borrar = detalladoItem.data.ventas_combustible?.filter((ventaCombustible: any) => hashCombustibles[ventaCombustible.venta] ? true : hashCombustibles[ventaCombustible.venta] = true) ?? []
+           
+           console.log(consecutivos_a_borrar)
+            /*  detalladoItem.data.ventas_combustible.map(async (item: any, index: number) => {
+                  const detalladoCierre = await DetalladoCierreDiario.aggregate()
+                     .match({ empresas_id: empresas_id, "data.ventas_combustible.consecutivo": item.consecutivo })
+                 if (detalladoCierre.length > 1) {
+                     let duplocadasABorrar: any[] = [];
+                     detalladoCierre.map(async (detalladoItem: any, index: number) => {
+                         if (index === 0) return
+                         const res = await DetalladoCierreDiario.findByIdAndDelete(detalladoItem._id)
+                         borradas.push(res)
+                     })
+ 
+ 
+                 } 
 
-
-            detalladoItem.data.ventas_combustible.map((item: any, index: number) => {
-                array_a_borrar.push(deleteDuplicadosHelper({ empresas_id, consecutivo_combustible: item.consecutivo }, borradas))
-            })
-
+            }) */
         })
-        const backup = await Promise.all(array_a_borrar);
-
         res.json({ borradas })
     } catch (error: any) {
         res.json({ error: error.message });
