@@ -6,7 +6,7 @@ import {getUsuarios,deleteDuplicados, deleteAllDuplicados} from "../controllers/
 
 const router = Router();
 
-router.post(
+router.get(
     "/obtener_ventas_duplicadas",
     getUsuarios
 );
@@ -16,7 +16,7 @@ router.post(
     deleteDuplicados
 );
 router.post(
-    "/delete_All_duplicados",
+    "/delete_by_empresa_Jornada",
     deleteAllDuplicados
 );
 
