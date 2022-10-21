@@ -14,7 +14,7 @@ class Server {
     private api: string
     constructor() {
         this.app = express();
-        this.port = process.env.PORT || '8000'
+        this.port =  '1755'
         //Inicializando rutas
 
         this.movimientosRoute = '/api/movimientos'

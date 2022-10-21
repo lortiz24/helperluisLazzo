@@ -20,7 +20,7 @@ const ApiRoutes_1 = __importDefault(require("../routes/ApiRoutes"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
-        this.port = process.env.PORT || '8000';
+        this.port = '1755';
         //Inicializando rutas
         this.movimientosRoute = '/api/movimientos';
         this.api = '/';
